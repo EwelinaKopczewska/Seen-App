@@ -1,0 +1,23 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-image: url("../image/map-of-the-world-2401458_1280.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+@import "src/scss/sections/_nav";
+@import "src/scss/sections/_home";
+@import "src/scss/sections/_login";
+
+
+@import "src/scss/settings/_reset";
+@import "src/scss/settings/_buttons";
