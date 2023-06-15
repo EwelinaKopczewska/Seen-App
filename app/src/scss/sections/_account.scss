@@ -1,0 +1,55 @@
+.containerAccount{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+
+   
+    .account{
+    width: 520px;
+    height: 450px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    border-radius: 8px;
+    background-color:  #76A1A7;
+    display: flex;
+    flex-direction: column;
+    
+        @media (max-width: 800px) {
+            width: 420px;
+            height: 350px;
+        }
+
+        .account_username{
+            font-size:30px;
+            margin : 0 auto;
+        }
+
+        .account_continent-title{
+            font-size:20px;
+            margin: 0 auto;
+            padding:20px;
+        }
+
+        .account_continent-box{
+            font-size:20px;
+            margin-left:100px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .account_register{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size:30px;
+        }
+
+
+        .btn_account{
+            margin-top:30px;
+            font-size:15px;
+        }
+    }
+}

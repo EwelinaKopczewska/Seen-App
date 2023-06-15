@@ -1,7 +1,6 @@
 
-
 .containerNav {
-    width: 100%;
+    width: 100vw;
     height: 150px;
     background-color: #2b7391;
     opacity: 0.9;
@@ -13,10 +12,8 @@
         display: flex;
         align-items: center;
         padding: 30px;
-        margin-right:150px;
-        font-size: 30px;
         list-style: none;
-        cursor: pointer;  
+        cursor: pointer;   
     }
 
     a {
@@ -24,19 +21,44 @@
         color:black;
         
         &:hover{
-        color:white;
+            color:white;
         }
     }
 
     .navLink{
+        font-size: 20px;
         margin-left:60px;
         color:black;
         text-decoration: none;
+
+        @media (max-width: 800px) {
+            font-size: 20px;
+            padding: 20px;
+            margin-left:20px;
+        }
+        @media (max-width: 660px) {
+            font-size: 15px;
+            padding: 20px;
+            margin-left:10px;
+        }
+        
     }
 
     .logo{
-        font-size: 90px;
+        font-size: 80px;
         padding: 30px;
         margin-left:60px;
+        color: white;
+
+        @media (max-width: 800px) {
+            font-size: 50px;
+            margin-left:20px;
+            margin-top:20px;
+        }
+        @media (max-width: 660px) {
+            font-size: 40px;
+            margin-left:10px;
+            margin-top:20px;
+        }
     }
 }

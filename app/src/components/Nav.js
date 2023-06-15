@@ -1,7 +1,8 @@
-import React from "react";
+import React  from "react";
 import {Link} from 'react-router-dom';
 
 const Nav = () => {
+
     return (
         <div className= "containerNav">
             <h1 className = "logo">Seen</h1>
@@ -10,7 +11,10 @@ const Nav = () => {
                     <Link to="/">Home</Link>
                 </li>
                 <li className="navLink">
-                    <Link to="/login">Register</Link>
+                    <Link to="/login">Zarejestruj się/Wyloguj</Link>
+                </li>
+                <li className="navLink">
+                    <Link to="/login/account">Konto</Link>
                 </li>
             </ul>
         </div>

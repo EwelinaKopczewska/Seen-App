@@ -1,4 +1,4 @@
-import React from "react";
+import React  from "react";
 import {
   Route,
   Routes,
@@ -7,19 +7,25 @@ import {
 import Nav from './Nav';
 import Home from './Home';
 import Login from './Login';
+import Account from "./Account";
+
 
 const App = () => {
+  
   return ( 
-  <HashRouter>
-    <div className="App">
+  
+    <HashRouter>
+
       <Nav/>
+
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/login" element={<Login/>}></Route>
+        <Route path="/login" exact element={<Login/>}></Route>
+        <Route path="/login/account" element={<Account/>}></Route>
       </Routes>
-    </div>
-  </HashRouter>
-
+    
+    </HashRouter>
+  
   );
 }
 
