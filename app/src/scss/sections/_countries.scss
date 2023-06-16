@@ -1,0 +1,49 @@
+.containerCountries{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+
+
+    .countries{
+        width: 520px;
+        height: 450px;
+        padding-top: 30px;
+        padding-bottom: 20px;
+        border-radius: 8px;
+        background-color:  #76A1A7;
+        display: flex;
+        flex-direction: column;
+        margin:100px auto;
+        align-items: center;
+        
+
+        @media (max-width: 800px) {
+            width: 420px;
+            height: 350px;
+        }
+
+        .countries_title{
+            font-size:30px;
+        }
+
+        .countries_box{
+            overflow: auto;
+
+            .countries_list{
+                font-size:18px;
+                margin-bottom: 6px;
+            }
+
+            .countries_list-text{
+                margin-right: 10px;
+            }
+        }
+
+        .countries_btn{
+            display: flex;
+            padding: 10px;
+        }
+    }
+}

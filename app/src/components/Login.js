@@ -58,9 +58,9 @@ const Login = () => {
     }
 
     
-    localStorage.setItem("name", JSON.stringify(form.name));
-    
-
+    localStorage.setItem("name", form.name);
+    localStorage.setItem("email", form.email);
+    localStorage.setItem("password", form.password);
   return(
     <> {success ? (
       <>

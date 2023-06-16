@@ -1,16 +1,20 @@
-import React from "react";
-
+import React  from "react";
+import { useNavigate } from 'react-router-dom';
 
 const Account = () => {
-    
+  
     const username =  localStorage.getItem(`name`);
-    
-
+    const navigate = useNavigate();
+   
     const onChangeValue = (event) => {
         console.log(event.target.value);
+        localStorage.setItem("continent", event.target.value);
     }
 
-   
+    const onShowCountries = () => {
+        navigate('/login/countries');
+    }
+
     return (
         <>
         {username.length > 2 ? (
@@ -20,26 +24,26 @@ const Account = () => {
                     <h3 className= "account_continent-title">Wybierz kontynent:</h3>
                     <div className= "account_continent-box" onChange={onChangeValue}>
                         <label>
-                            <input type="radio" value="Europa" name="continent"/> Europa </label>      
+                            <input className= "account_input" type="radio" value="Europe" name="continent"/>Europa </label>      
                         <label>
-                            <input type="radio" value="Azja" name="continent"/>Azja </label>           
+                            <input className= "account_input" type="radio" value="Asia" name="continent"/>Azja </label>           
                         <label>
-                            <input type="radio" value="Afryka" name="continent"/>Afryka  
+                            <input className= "account_input" type="radio" value="Africa" name="continent"/>Afryka  
                         </label>                 
                         <label>
-                            <input type="radio" value="Ameryka Północna" name="continent"/>Ameryka Północna  
+                            <input className= "account_input" type="radio" value="North America" name="continent"/>Ameryka Północna  
                         </label> 
                         <label>
-                            <input type="radio" value="Ameryka Południowa" name="continent"/>Ameryka Południowa
+                            <input className= "account_input" type="radio" value="South America" name="continent"/>Ameryka Południowa
                         </label>
                         <label>
-                            <input type="radio" value="Australia i Oceania" name="continent"/>Australia i Oceania
+                            <input className= "account_input" type="radio" value="Oceania" name="continent"/>Australia i Oceania
                         </label>
                         <label>
-                            <input type="radio" value="Antarktyda" name="continent"/>Antarktyda
+                            <input className= "account_input" type="radio" value="Antarctica" name="continent"/>Antarktyda
                         </label>
                     </div>
-                    <button className="btn btn_account" >Pokaż państwa</button>
+                    <button className="btn btn_account" onClick={onShowCountries} >Pokaż państwa</button>
                 </div>
             </div>
         ) : (

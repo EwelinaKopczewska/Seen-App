@@ -15,6 +15,7 @@
     background-color:  #76A1A7;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     
         @media (max-width: 800px) {
             width: 420px;
@@ -24,6 +25,7 @@
         .account_username{
             font-size:30px;
             margin : 0 auto;
+            padding-bottom: 20px;
         }
 
         .account_continent-title{
@@ -37,15 +39,19 @@
             margin-left:100px;
             display: flex;
             flex-direction: column;
+
+            .account_input{
+                margin-right: 6px;
+            }
         }
 
         .account_register{
+            height: 450px;
             display: flex;
             justify-content: center;
             align-items: center;
             font-size:30px;
         }
-
 
         .btn_account{
             margin-top:30px;
