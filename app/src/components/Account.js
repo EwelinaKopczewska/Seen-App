@@ -1,25 +1,27 @@
-import React  from "react";
+import React , {useState} from "react";
 import { useNavigate } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 const Account = () => {
-  
+    const [disabled , setDisabled] = useState(true)
     const username =  localStorage.getItem(`name`);
     const navigate = useNavigate();
    
     const onChangeValue = (event) => {
         console.log(event.target.value);
         localStorage.setItem("continent", event.target.value);
+        setDisabled(false)
     }
 
     const onShowCountries = () => {
-        navigate('/login/countries');
+        navigate('/login/account/countries');
     }
 
     return (
         <>
         {username.length > 2 ? (
-            <div className="containerHome containerAccount">
-                <div className= "account" >
+            <div className="containerHome containerBox">
+                <div className= "account box" >
                     <h2 className= "account_username">Hej, {username}!</h2>
                     <h3 className= "account_continent-title">Wybierz kontynent:</h3>
                     <div className= "account_continent-box" onChange={onChangeValue}>
@@ -43,13 +45,13 @@ const Account = () => {
                             <input className= "account_input" type="radio" value="Antarctica" name="continent"/>Antarktyda
                         </label>
                     </div>
-                    <button className="btn btn_account" onClick={onShowCountries} >Pokaż państwa</button>
+                    <button className="btn btn_account" disabled = {disabled} onClick={onShowCountries} >Pokaż państwa</button>
                 </div>
             </div>
         ) : (
-            <div className="containerHome containerAccount">
-                <div className= "account">
-                    <h2 className = "account_register">Zarejestruj się</h2>
+            <div className="containerHome containerBox">
+                <div className= "account box">
+                    <Link className="account_register" to="/login">Zarejestruj się</Link>
                 </div>
             </div>
         )}

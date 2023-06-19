@@ -1,61 +1,85 @@
-.containerAccount{ 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    font-family: 'Poppins', sans-serif;
-
-   
-    .account{
-    width: 520px;
-    height: 450px;
-    padding-top: 30px;
-    padding-bottom: 20px;
-    border-radius: 8px;
-    background-color:  #76A1A7;
+.account{  
     display: flex;
     flex-direction: column;
     justify-content: center;
     
+    @media (max-width: 800px) {
+        width: 420px;
+        height: 450px;
+    }
+
+    @media (max-width: 600px) {
+        width: 350px;
+    }
+
+    .account_username{
+        font-size:30px;
+        margin : 0 auto;
+        padding-bottom: 20px;
+
+        @media (max-width: 560px) {
+            font-size: 25px;
+        }
+        @media (max-width: 400px) {
+            font-size: 20px;
+        }
+    }
+
+    .account_continent-title{
+        font-size:20px;
+        margin: 0 auto;
+        padding:20px;
+
         @media (max-width: 800px) {
-            width: 420px;
-            height: 350px;
+            font-size: 15px;
+        }
+        @media (max-width: 400px) {
+            font-size: 10px;
+        }
+    }
+
+    .account_continent-box{
+        width:90%;
+        font-size: 20px;
+        margin-left: 10px;
+        display: flex;
+        flex-direction: column;
+
+        @media (max-width: 800px) {
+            font-size: 15px;
+        }
+        @media (max-width: 400px) {
+            font-size: 10px;
         }
 
-        .account_username{
-            font-size:30px;
-            margin : 0 auto;
-            padding-bottom: 20px;
+        .account_input{
+            margin-right: 6px;
         }
 
-        .account_continent-title{
-            font-size:20px;
-            margin: 0 auto;
-            padding:20px;
+        label{
+            padding:5px;
         }
+    }
 
-        .account_continent-box{
-            font-size:20px;
-            margin-left:100px;
-            display: flex;
-            flex-direction: column;
+    .account_register{
+        height: 450px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size:30px;
 
-            .account_input{
-                margin-right: 6px;
-            }
+        @media (max-width: 800px) {
+            font-size: 25px;
         }
-
-        .account_register{
-            height: 450px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size:30px;
+        @media (max-width: 560px) {
+            font-size: 20px;
         }
-
-        .btn_account{
-            margin-top:30px;
-            font-size:15px;
+        @media (max-width: 400px) {
+            font-size: 15px;
         }
+    }
+    .btn_account{
+        margin-top:30px;
+        font-size:15px;
     }
 }

@@ -9,7 +9,7 @@ import Home from './Home';
 import Login from './Login';
 import Account from "./Account";
 import Countries from "./Countries";
-
+import Info from "./Info";
 
 const App = () => {
   
@@ -23,7 +23,8 @@ const App = () => {
         <Route path="/" element={<Home />}></Route>
         <Route path="/login" exact element={<Login/>}></Route>
         <Route path="/login/account" element={<Account/>}></Route>
-        <Route path="/login/countries" element={<Countries/>}></Route>
+        <Route path="/login/account/countries" element={<Countries/>}></Route>
+        <Route path="/login/account/countries/info" element={<Info/>}></Route>
       </Routes>
     
     </HashRouter>

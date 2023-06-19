@@ -68,8 +68,8 @@ const Login = () => {
       </>
       ) : (
 
-    <div className="containerHome form-container">
-      <form className="form" onSubmit={handleSubmit} >
+    <div className="containerHome containerBox">
+      <form className="form box" onSubmit={handleSubmit} >
         <div className="form-content">
           <h3 className="form-title">Rejestracja</h3>
           <div>

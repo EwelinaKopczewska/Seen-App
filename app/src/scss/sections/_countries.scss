@@ -1,49 +1,56 @@
-.containerCountries{ 
+.countries{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    margin:100px auto;
     align-items: center;
-    width: 100%;
-    font-family: 'Poppins', sans-serif;
-
-
-    .countries{
-        width: 520px;
+    
+    @media (max-width: 800px) {
+        width: 420px;
         height: 450px;
-        padding-top: 30px;
-        padding-bottom: 20px;
-        border-radius: 8px;
-        background-color:  #76A1A7;
+    }
+
+    .countries_title{
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+
+    .countries_box{
+        overflow: auto;
         display: flex;
         flex-direction: column;
-        margin:100px auto;
-        align-items: center;
+        justify-content: space-between;
+        width: 90%;
         
-
-        @media (max-width: 800px) {
-            width: 420px;
-            height: 350px;
-        }
-
-        .countries_title{
-            font-size:30px;
-        }
-
-        .countries_box{
-            overflow: auto;
-
-            .countries_list{
-                font-size:18px;
-                margin-bottom: 6px;
+        .countries_list{
+            font-size:18px;
+            margin-bottom: 6px;
+            
+            .countries_list-input{
+                margin-right: 10px;
             }
 
             .countries_list-text{
-                margin-right: 10px;
-            }
-        }
+                display: flex;
+                flex-direction: row;
+                align-items: center;
 
-        .countries_btn{
-            display: flex;
-            padding: 10px;
+                .btn-info{
+                font-size: 10px;
+                font-weight: bold;
+                padding: 5px;
+                margin-right:15px;
+                }
+            }
+        } 
+    }
+
+    .countries_btn{
+        display: flex;
+        padding: 5px;
+
+        .btn{
+            margin: 0 60px;
         }
     }
 }
+

@@ -12,12 +12,43 @@ body{
     background-repeat: no-repeat;
 }
 
+.box{
+    width: 530px;
+    height: 460px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    border-radius: 8px;
+    background-color:  #76A1A7;
+    font-family: 'Poppins', sans-serif;
+
+    @media (max-width: 800px) {
+        width: 420px;
+        height: 350px;
+    }
+}
+
+.containerBox{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color:black;
+    
+    &:hover{
+        color:white;
+    }
+}
 
 @import "src/scss/sections/_nav";
 @import "src/scss/sections/_home";
 @import "src/scss/sections/_login";
 @import "src/scss/sections/_account";
 @import "src/scss/sections/_countries";
+@import "src/scss/sections/_info";
 
 @import "src/scss/settings/_reset";
 @import "src/scss/settings/_buttons";
