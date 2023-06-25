@@ -1,0 +1,47 @@
+.containerSummary{
+    
+    @media (max-width: 900px) {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .summary{
+        margin:  50px; 
+        
+        .summarytitle{
+            font-size: 25px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .list{
+            overflow: auto;
+            width: 95%;
+            height: 80%;
+            margin-bottom: 10px;
+
+            .summarylist{
+            font-size: 20px;
+            padding: 10px;
+            margin-left:20px;
+            list-style-type: decimal-leading;
+            
+                .summarylistcountries{
+                    font-size: 18px;
+                    margin-top: 6px;
+
+                    .material-symbols-outlined{
+                        margin-left:10px;
+                        font-size: 20px;
+                    }
+                }
+            }
+
+            .summarylistnone{
+                list-style-type: none;
+                font-size:17px;
+            }
+        }
+
+    }
+}

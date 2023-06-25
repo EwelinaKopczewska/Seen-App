@@ -2,11 +2,25 @@ import React , { useState , useEffect} from "react";
 import { useNavigate } from 'react-router-dom';
 
 const Countries = () => {
+  const [selectedCountries, setSelectedCountries] = useState([]);
   const [countryNames, setCountryNames] = useState([]);
+  const [save , setSave] =useState("");
   const continent = localStorage.getItem(`continent`);
   const navigate = useNavigate();
 
-  const onBacktoCountries = () => {
+  useEffect(() => {
+    // Retrieve stored countries from localStorage
+    const continent = localStorage.getItem('continent');
+    const tableName = `Country:${continent}`;
+    const storedCountries = localStorage.getItem(tableName);
+
+    if (storedCountries) {
+      const countries = JSON.parse(storedCountries);
+      setSelectedCountries(countries);
+    }
+  }, []);
+
+  const onBackContinents = () => {
     navigate('/login/account');
     localStorage.removeItem(`continent`);
   }
@@ -29,31 +43,52 @@ const Countries = () => {
   const onChangeValue = (event) => {
     localStorage.setItem("country", event.target.value);
     const continent = localStorage.getItem(`continent`);
-    const tableName = `country_${continent}`;
+    const tableName = `Country:${continent}`;
     const storedCountries = localStorage.getItem(tableName);
     const selectedCountry = event.target.value;
    
-   if (storedCountries) {
-      const countries = JSON.parse(storedCountries);
-      if (!countries.includes(selectedCountry)) {
-        countries.push(selectedCountry);
-        localStorage.setItem(tableName, JSON.stringify(countries));
+    const isChecked = event.target.checked;
+    if (isChecked) {
+      localStorage.setItem("country", selectedCountry);
+      setSelectedCountries((prevSelected) => [...prevSelected, selectedCountry]);
+
+      if (storedCountries) {
+        const countries = JSON.parse(storedCountries);
+        if (!countries.includes(selectedCountry)) {
+          countries.push(selectedCountry);
+          localStorage.setItem(tableName, JSON.stringify(countries));
+        }
+      } else {
+        localStorage.setItem(tableName, JSON.stringify([selectedCountry]));
       }
     } else {
-      localStorage.setItem(tableName, JSON.stringify([selectedCountry]));
+      
+      if (storedCountries) {
+        const countries = JSON.parse(storedCountries);
+        const updatedCountries = countries.filter(
+          (country) => country !== selectedCountry
+        );
+        localStorage.setItem(tableName, JSON.stringify(updatedCountries));
+        setSelectedCountries(updatedCountries);
+      }
     }
-  }
+  };
 
   const onSaveCountries = () => {
-    const arrayCountries = localStorage.getItem(`country_${continent}`)
+    const arrayCountries = localStorage.getItem(`Country:${continent}`)
     const array = JSON.parse(arrayCountries);
     console.log(array)
+    setSave("Państwa zostały zapisane!")
   }
 
   const onShowInfo = (event) => {
     localStorage.setItem("country", event.currentTarget.value);
     console.log(event.currentTarget.value)
     navigate('/login/account/countries/info');
+  }
+
+  const onShowSummary= () => {
+    navigate('/login/account/countries/summary');
   }
 
   return (
@@ -64,15 +99,16 @@ const Countries = () => {
           {countryNames.map((country) => 
             <li className="countries_list" key={country}>
               <label className="countries_list-text">
-                <input onChange= {onChangeValue} className="countries_list-input" type="checkbox" name={country} value={country}/>{country}
+                <input onChange= {onChangeValue} checked={selectedCountries.includes(country)} className="countries_list-input" type="checkbox" name={country} value={country} />{country}
                 <button onClick={e => onShowInfo(e)} value={country} className ="btn btn-info">Informacja</button>
               </label>
             </li>)}
           </ul>
           <button onClick={onSaveCountries} className= "btn">Zapisz</button>
+          <div style={{color:"black" , margin: "10px"}}>{save}</div>
           <div className="countries_btn">
-            <button className= "btn" onClick={onBacktoCountries}>Wróć do kontynentów</button>
-            <button className= "btn">Podsumowanie</button>
+            <button className= "btn" onClick={onBackContinents}>Wróć do kontynentów</button>
+            <button className= "btn" onClick={onShowSummary}>Podsumowanie</button>
           </div>       
       </div>
   </div>

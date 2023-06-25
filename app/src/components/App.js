@@ -10,6 +10,7 @@ import Login from './Login';
 import Account from "./Account";
 import Countries from "./Countries";
 import Info from "./Info";
+import Summary from "./Summary";
 
 const App = () => {
   
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/login/account" element={<Account/>}></Route>
         <Route path="/login/account/countries" element={<Countries/>}></Route>
         <Route path="/login/account/countries/info" element={<Info/>}></Route>
+        <Route path="/login/account/countries/summary" element={<Summary/>}></Route>
       </Routes>
     
     </HashRouter>
