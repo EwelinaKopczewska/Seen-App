@@ -1,6 +1,6 @@
 import React  from "react";
 import { useNavigate } from 'react-router-dom';
-
+import Result from "./Result";
 
 const Summary = () => {
     const navigate = useNavigate();
@@ -23,8 +23,8 @@ const Summary = () => {
     const arrayNorthAmerica = localStorage.getItem(`Country:North America`)
     const arraylistNorth = JSON.parse(arrayNorthAmerica);
 
-    const arrayAntartica = localStorage.getItem(`Country:Antarctica`)
-    const arraylistAntartica = JSON.parse(arrayAntartica);
+    const arrayAntarctica = localStorage.getItem(`Country:Antarctica`)
+    const arraylistAntarctica = JSON.parse(arrayAntarctica);
 
     const onBackContinents = () => {
         navigate('/login/account');
@@ -60,14 +60,21 @@ const Summary = () => {
                         <li key={id} className= "summarylistcountries">{country}</li>) : <li className= "summarylistnone">Brak odwiedzonych państw</li>}
                     </ul>
                     <ul className= "summarylist"> Antarktyda:
-                        {arraylistAntartica && arraylistAntartica.length > 0 ? arraylistAntartica.map((country , id) => 
+                        {arraylistAntarctica && arraylistAntarctica.length > 0 ? arraylistAntarctica.map((country , id) => 
                         <li key={id} className= "summarylistcountries">{country}</li>) : <li className= "summarylistnone">Brak odwiedzonych państw</li>}
                     </ul>
                 </div>
                 <button onClick= {onBackContinents} className="btn">Wróć do kontynentów</button> 
             </div>
             <div className= "summary box">
-                <h1 className= "summarytitle">Podsumowanie</h1>
+                <Result arraylistEurope={arraylistEurope}
+                    arraylistAsia={arraylistAsia}
+                    arraylistAfrica={arraylistAfrica}
+                    arraylistOceania={arraylistOceania}
+                    arraylistSouth={arraylistSouth}
+                    arraylistNorth={arraylistNorth}
+                    arraylistAntarctica={arraylistAntarctica}>
+                </Result>
             </div>
         </div>
     )
