@@ -3,11 +3,26 @@
     @media (max-width: 900px) {
         display: flex;
         flex-direction: column;
+        height: 100%;
     }
     
     .summary{
         margin:  50px; 
         
+        @media (max-width: 900px) {
+            height: 750px;
+        }
+
+        @media (max-width: 450px) {
+            width: 350px;
+            height: 750px;
+        }
+
+        @media (max-width: 350px) {
+            width: 290px;
+            height: 750px;
+        }
+
         .summarytitle{
             font-size: 25px;
             display: flex;
@@ -19,6 +34,7 @@
             width: 95%;
             height: 80%;
             margin-bottom: 10px;
+            margin-left:10px;
 
             .summarylist{
             font-size: 20px;

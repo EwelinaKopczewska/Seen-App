@@ -8,7 +8,6 @@ const Account = () => {
     const navigate = useNavigate();
    
     const onChangeValue = (event) => {
-        console.log(event.target.value);
         localStorage.setItem("continent", event.target.value);
         setDisabled(false)
     }
@@ -51,12 +50,12 @@ const Account = () => {
         ) : (
             <div className="containerHome containerBox">
                 <div className= "account box">
-                    <Link className="account_register" to="/login">Zarejestruj się</Link>
+                    <Link className="account_register" to="/login">Zaloguj się</Link>
                 </div>
             </div>
         )}
         </>
-        );
+    );
 
 }
 

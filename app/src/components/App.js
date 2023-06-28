@@ -11,13 +11,14 @@ import Account from "./Account";
 import Countries from "./Countries";
 import Info from "./Info";
 import Summary from "./Summary";
+import NavMobile from "./NavMobile";
 
 const App = () => {
   
   return ( 
   
     <HashRouter>
-
+      <NavMobile></NavMobile>
       <Nav/>
 
       <Routes>

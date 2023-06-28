@@ -75,15 +75,12 @@ const Countries = () => {
   };
 
   const onSaveCountries = () => {
-    const arrayCountries = localStorage.getItem(`Country:${continent}`)
-    const array = JSON.parse(arrayCountries);
-    console.log(array)
+    localStorage.getItem(`Country:${continent}`)
     setSave("Państwa zostały zapisane!")
   }
 
   const onShowInfo = (event) => {
     localStorage.setItem("country", event.currentTarget.value);
-    console.log(event.currentTarget.value)
     navigate('/login/account/countries/info');
   }
 

@@ -18,36 +18,35 @@ const Login = () => {
     const validate = form => {
 
         if(!form.name){
-            return "Imię jest wymagane"
+          return "Imię jest wymagane"
         }else if(form.name.length < 2){
-            return "Imię jest za ktrótkie"
+          return "Imię jest za ktrótkie"
         }
 
         if(!form.email){
-            return "Adres mailowy jest wymagany"
+          return "Adres mailowy jest wymagany"
         }else if(form.email.length < 3){
-            return"Adres mailowy jest za krótki"
+          return"Adres mailowy jest za krótki"
         }
 
         if(!form.password){
-            return "Hasło jest wymagane"
+          return "Hasło jest wymagane"
         }else if(form.password.length < 4){
-            return "Hasło jest za krótkie"
+          return "Hasło jest za krótkie"
         }
     }
 
     const handleInputChange = (e) => {
-        setForm({
-            ...form,
-            [e.target.name]: e.target.value
-        });
+    setForm({
+        ...form,
+        [e.target.name]: e.target.value
+    });
     };
 
     const handleSubmit = async (event) => {
       event.preventDefault();
       const errorMsg = validate(form)
 
-      console.log( form )
       if(errorMsg) {
         setErrors(errorMsg)
         console.log("Błąd")
@@ -71,7 +70,7 @@ const Login = () => {
     <div className="containerHome containerBox">
       <form className="form box" onSubmit={handleSubmit} >
         <div className="form-content">
-          <h3 className="form-title">Rejestracja</h3>
+          <h3 className="form-title">Logowanie</h3>
           <div>
             <label>Imię</label>
             <input
@@ -105,7 +104,7 @@ const Login = () => {
           <div style={{color:"red" , marginBottom: "10px"}}>{errors ? errors : ""}</div>
           <div>
             <button className="btn">
-              Załóż konto
+              Zaloguj
             </button>
           </div>
         </div>

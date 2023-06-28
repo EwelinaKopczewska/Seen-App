@@ -20,6 +20,14 @@
         flex-direction: column;
         justify-content: space-between;
         width: 90%;
+
+        @media (max-width: 800px) {
+            width: 420px;
+            height: 450px;
+        }
+        @media (max-width: 600px) {
+            width: 300px;
+        }
         
         .countries_list{
             font-size:18px;

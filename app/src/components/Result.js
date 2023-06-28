@@ -57,7 +57,6 @@ const Result = (props) => {
     fetchCountry();
   }, []);
 
-
   const {
     arraylistEurope,
     arraylistAsia,
@@ -68,46 +67,53 @@ const Result = (props) => {
     arraylistAntarctica,
   } = props;
 
-  const sum = [ ...arraylistEurope,...arraylistAsia,...arraylistAfrica,...arraylistOceania,...arraylistSouth,...arraylistNorth,...arraylistAntarctica]
-
-
+  const sum = [
+    ...(arraylistEurope || []),
+    ...(arraylistAsia || []),
+    ...(arraylistAfrica || []),
+    ...(arraylistOceania || []),
+    ...(arraylistSouth || []),
+    ...(arraylistNorth || []),
+    ...(arraylistAntarctica || []),
+  ];
   const data = {
     labels: [ 'Europe', 'Asia', 'Africa', 'Oceania', 'North America', 'South America', 'Antarctica'],
     datasets: [{
       data: [
-        ((arraylistEurope.length * 100) / countrylength[0]['Europe']).toFixed(0),
-        ((arraylistAsia.length * 100) / countrylength[0]['Asia']).toFixed(0),
-        ((arraylistAfrica.length * 100) / countrylength[0]['Africa']).toFixed(0),
-        ((arraylistOceania.length * 100) / countrylength[0]['Oceania']).toFixed(0),
-        ((arraylistNorth.length * 100) / countrylength[0]['NorthAmerica']).toFixed(0),
-        ((arraylistSouth.length * 100) / countrylength[0]['SouthAmerica']).toFixed(0),
-        ((arraylistAntarctica.length * 100) / countrylength[0]['Antarctica']).toFixed(0),
+        arraylistEurope && arraylistEurope.length > 0 ? ((arraylistEurope.length * 100) / countrylength[0]['Europe']).toFixed(0) : 0 ,
+        arraylistAsia && arraylistAsia.length > 0 ? ((arraylistAsia.length * 100) / countrylength[0]['Asia']).toFixed(0) : 0  ,
+        arraylistAfrica && arraylistAfrica.length > 0 ? ((arraylistAfrica.length * 100) / countrylength[0]['Africa']).toFixed(0) : 0  ,
+        arraylistOceania && arraylistOceania.length > 0 ? ((arraylistOceania.length * 100) / countrylength[0]['Oceania']).toFixed(0) : 0 ,
+        arraylistNorth && arraylistNorth.length > 0 ? ((arraylistNorth.length * 100) / countrylength[0]['NorthAmerica']).toFixed(0) : 0 ,
+        arraylistSouth && arraylistSouth.length > 0 ? ((arraylistSouth.length * 100) / countrylength[0]['SouthAmerica']).toFixed(0) : 0 ,
+        arraylistAntarctica && arraylistAntarctica.length > 0 ? ((arraylistAntarctica.length * 100) / countrylength[0]['Antarctica']).toFixed(0) : 0 ,
       ],
       backgroundColor: [
-        '#008080', 
-        '#326647',      
-        '#8AA4B7',       
-        '#003153',       
-        '#4169E1',      
-        '#6EBE9F',      
-        '#0027C2',    
-        '#30D5C8'
+        '#4682B4',      
+        '#000080',       
+        '#1E90FF',       
+        '#ADD8E6',      
+        '#586c91',      
+        '#4D87A3',    
+        '#6495ED'
         ]
       }
     ]
   };
 
   const options = {
-    legend: {
-      labels: {
-        fontColor: 'black',
+    plugins :{
+      legend: {
+        labels: {
+          color: 'black',
+        },
       },
+      maintainAspectRatio : true,
     },
-    responsive: true,
   };
 
   return (
-    <div>
+    <div className="resultcontainer">
       <h1 className= "summarytitle">Podsumowanie</h1>
       <div className="result-box">
         <ul className="resultcountry">
@@ -120,8 +126,8 @@ const Result = (props) => {
             <li className="resultcountrylist">Ameryka Południowa : {data.datasets[0].data[5]}%</li>
             <li className="resultcountrylist">Antarktyda : {data.datasets[0].data[6]}%</li>
         </ul>
-        <div className="resultcountry" style={{ width: '300px', height: '300px' }}>
-            <Doughnut data={data} options={options}></Doughnut>
+        <div className="resultcountry" style={{ maxWidthwidth: '300px', maxHeight: '300px' }}>
+          <Doughnut data={data} options={options}></Doughnut>
         </div>
       </div>
     </div>

@@ -15,14 +15,8 @@
         list-style: none;
         cursor: pointer;   
 
-        @media (max-width: 800px) {
-            padding: 20px;
-        }
-        
-        @media (max-width: 660px) {
-            display: flex;
-            flex-direction: row;
-            padding: 10px;
+        @media (max-width: 700px) {
+            display: none;
         }
     }
 
@@ -64,16 +58,75 @@
             padding: 20px;
         }
 
-        @media (max-width: 560px) {
-            font-size: 40px;
-            margin-left:20px;
-            padding: 10px;
-        }
-
-        @media (max-width: 400px) {
-            font-size: 20px;
-            padding: 5px;
-            margin-left:10px;
+        @media (max-width: 600px) {
+            font-size: 50px;
         }
     }
+}
+
+@media screen and (max-width: 700px) {
+
+    .changetheme {
+    margin-right: 100px;
+    }
+}
+  
+.bm-item {
+    display: inline-block;
+    text-decoration: none;
+    margin-bottom: 20px;
+    color: #d1d1d1;
+    transition: color 0.2s;
+}
+  
+.bm-item:hover {
+    color: white;
+}
+  
+.bm-burger-button {
+    display: none;
+    position: fixed;
+    width: 36px;
+    height: 30px;
+    right: 36px;
+    top: 36px;
+}
+  
+@media screen and (max-width: 700px) {
+    .bm-burger-button {
+        display: block;
+    }
+}
+  
+.bm-burger-bars {
+    background: black;
+    margin-top: 27px;
+}
+
+.bm-cross-button {
+    height: 24px;
+    width: 24px;
+}
+
+.bm-cross {
+    background: #bdc3c7;
+}
+
+.bm-menu {
+    background: #2b7391;
+    padding: 1.3em 0.1em 0;
+    font-size: 1.15em;
+}
+
+.bm-morph-shape {
+    fill: #373a47;
+}
+
+.bm-item-list {
+    color: #b8b7ad;
+}
+
+.bm-overlay {
+    background: rgba(0, 0, 0, 0.3);
+    padding:20px;
 }

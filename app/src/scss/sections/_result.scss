@@ -1,27 +1,48 @@
-.result-box{
-    display: flex;
 
-    @media (max-width: 900px) {
+.resultcontainer{
+
+    @media (max-width: 1000px) {
         display: flex;
-        flex-direction: column; 
-        width: 420px;
-        height: 450px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
-    
-    .resultcountry{
-        padding:8px;
-        margin-top:20px;
 
-        .resultcountrylist{
-            padding:5px;   
+    .result-box{
+        display: flex;
+
+        @media (max-width: 900px) {
+            display: flex;
+            flex-direction: column;   
+            width: 420px;
+            height: 550px;
         }
-        .pie{
-            color:black;
-
+        
+        .resultcountry{
+            padding:8px;
+            
             @media (max-width: 900px) {
-                width: 100px;
-                height: 300px;
+                display: flex;
+                flex-direction: column; 
+                align-items: center;
             }
+
+            .resultcountrylist{
+                padding:5px; 
+                margin-bottom: 10px;  
+
+                @media (max-width: 1100px) {
+                    margin-bottom: 5px;
+                }
+            }
+        
+            canvas {
+                @media (max-width: 900px) {
+                    width: 350px;
+                    height: 350px;
+                }   
+            }
+            
         }
     }
 }
